@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class IntravenousRateAssistant {
+    // Function to get the problem number from the user
     public static int get_problem(Scanner scan) {
         int choice;
 
@@ -28,6 +29,7 @@ public class IntravenousRateAssistant {
         }
     }
 
+    // Function to get the rate and drop factor from the user
     public static double[] get_rate_drop_factor(Scanner scan) {
         double[] rateDropFactor = new double[2];
 
