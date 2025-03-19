@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class NonVerticalStraightLines {
-    private static final Scanner input = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
     
-    public static int get_problem() {
+    public int get_problem() {
         int choice;
         
         System.out.println("Select the form that you would like to convert to slope-intercept form:");
@@ -17,7 +17,7 @@ public class NonVerticalStraightLines {
         return choice;
     }
 
-    public static void get2_pt(double[] points) {
+    public void get2_pt(double[] points) {
         System.out.print("Enter the x-y coordinates of the first point separated by a space=> ");
         points[0] = input.nextDouble();
         points[1] = input.nextDouble();
@@ -27,5 +27,17 @@ public class NonVerticalStraightLines {
         points[3] = input.nextDouble();
         
         System.out.println();
+    }
+    
+    public static void main(String[] args) {
+        NonVerticalStraightLines program = new NonVerticalStraightLines();
+        
+        int choice = program.get_problem();
+        
+        if (choice == 1) {
+            double[] points = new double[4];
+            program.get2_pt(points);
+            // Rest of the program would go here
+        }
     }
 }
