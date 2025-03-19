@@ -34,7 +34,6 @@ public class ResistorColorCodeCalculator {
         String band3 = scan.next();
         int index3 = search(COLOR_CODES, band3);
 
-        scan.close(); // Closing scanner to prevent resource leaks
+        scan.close(); // Closing scanner
     }
 }
-
