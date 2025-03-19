@@ -57,7 +57,7 @@ public class IntravenousRateAssistant {
 
         return rateDropFactor;
     }
-    
+
     public static double[] by_units(Scanner scan){
         double[] rateDropFactor_by_units = new double[2];
 
@@ -85,20 +85,6 @@ public class IntravenousRateAssistant {
         return rateDropFactor_by_units;
     }
 
-        while (true) {
-            System.out.print("Enter concentration in units/ml => ");
-            if (scan.hasNextDouble()) {
-                rateDropFactor_by_weight[1] = scan.nextDouble();
-                break;
-            } else {
-                System.out.println("Invalid input. Please enter a number.");
-                scan.next(); // Consume invalid input
-            }
-        }
-
-        return rateDropFactor_by_weight;
-    }
-    
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
