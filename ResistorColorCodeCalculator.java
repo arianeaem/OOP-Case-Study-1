@@ -35,5 +35,21 @@ public class ResistorColorCodeCalculator {
         int index3 = search(COLOR_CODES, band3);
 
         scan.close(); // Closing scanner
+
+        // If any of the colors are not found, print an error message
+        if (index1 == -1 || index2 == -1 || index3 == -1) { 
+            System.out.println("Invalid color code entered. Please enter valid resistor colors.");
+            return;
+        } else {
+            // Calculate the resistance using the formula (band1 * 10 + band2) * band3
+            int resistance = (index1 * 10 + index2) * MULTIPLIER_VALUES[index3];
+            // If the resistance is greater than or equal to 1000, print it in kilo-ohms
+            if (resistance >= 1000) {
+                System.out.println("Resistance: " + resistance / 1000 + " kilo-ohms");
+            } else {
+                System.out.println("Resistance: " + resistance + " ohms");
+            }
+        }
     }
+    
 }
