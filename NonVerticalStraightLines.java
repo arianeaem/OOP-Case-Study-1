@@ -28,6 +28,24 @@ public class NonVerticalStraightLines {
         
         System.out.println();
     }
+
+        public void get_pt_slope(double[] values) {
+        System.out.print("Enter the slope=> ");
+        values[0] = input.nextDouble();
+        
+        System.out.print("Enter the x-y coordinates of the point separated by a space=> ");
+        values[1] = input.nextDouble();
+        values[2] = input.nextDouble();
+        
+        System.out.println();
+    }
+
+    public void slope_intcpt_from2_pt(double[] points, double[] result) {
+        double m = (points[3] - points[1]) / (points[2] - points[0]);
+        double b = points[1] - (m * points[0]);
+        result[0] = m;
+        result[1] = b;
+    }
     
     // Function to convert two-point form to slope-intercept form
     public double intcpt_from_pt_slope(double x, double y, double slope) {
