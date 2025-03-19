@@ -149,6 +149,8 @@ public class IntravenousRateAssistant {
                 double dropRatePerMilliliters = rateDropFactor_by_weight[0] / rateDropFactor_by_weight [1];
                 System.out.println("The rate in milliliters per hour " + Math.round(dropRatePerMilliliters) + ".");
                 break;
+            case 5:
+                break;
             default:
                 System.out.println("Feature not implemented.");
         }
