@@ -127,6 +127,13 @@ public class IntravenousRateAssistant {
         return unitsRate;
     }
 
+    public static int fig_drops_min(double rate, double dropFactor) {
+        return (int) Math.round((rate * dropFactor) / 60);
+    }
+
+    public static int fig_ml_hr(double hours) {
+        return (int) Math.round(1000 / hours);
+    }
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -136,7 +143,7 @@ public class IntravenousRateAssistant {
         switch (problem) {
             case 1:
                 double[] rateDropFactor = get_rate_drop_factor(scan);
-                double dropRatePerMinute = rateDropFactor[0] * rateDropFactor[1] / 60;
+                int dropRatePerMinute = fig_drops_min(rateDropFactor[0], rateDropFactor[1]);
                 System.out.println("The drop rate per minute is " + Math.round(dropRatePerMinute) + ".");
                 break;
             case 3:
