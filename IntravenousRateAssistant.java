@@ -136,19 +136,6 @@ public class IntravenousRateAssistant {
         return (int) Math.round(1000 / hours);
     }
 
-    public static double get_hours(Scanner scan) {
-        double hours;
-        while (true) {
-            System.out.print("Enter number of hours => ");
-            if (scan.hasNextDouble()) {
-                hours = scan.nextDouble();
-                return hours;
-            } else {
-                System.out.println("Invalid input. Please enter a number.");
-                scan.next(); // Consume invalid input
-            }
-        }
-    }
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -162,10 +149,11 @@ public class IntravenousRateAssistant {
                 System.out.println("The drop rate per minute is " + Math.round(dropRatePerMinute) + ".");
                 break;
             case 2:
-                double hours = get_hours(scan);
+                System.out.print("Enter number of hours => ");
+                double hours = scan.nextDouble();
                 int mlPerHour = fig_ml_hr(hours);
                 System.out.println("The rate in milliliters per hour is " + mlPerHour + ".");
-                break;
+            break;
             case 3:
                 double[] kgRate = get_kg_rate_conc(scan);
                 double mlPerHour2 = (kgRate[0] * kgRate[1]) / kgRate[2];
