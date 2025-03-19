@@ -4,7 +4,7 @@ public class IntravenousRateAssistant {
     // Function to get the problem number from the user
     public static int get_problem(Scanner scan) {
         int choice;
-System.out.println("INTRAVENOUS RATE ASSISTANT\n");
+
         while (true) {
             System.out.println("Enter the number of the problem you wish to solve.");
             System.out.println("\tGIVEN A MEDICAL ORDER IN\t\t\tCALCULATE RATE IN");
@@ -97,7 +97,7 @@ System.out.println("INTRAVENOUS RATE ASSISTANT\n");
 
         return kgRate;
     }
-    
+
 
     // Function to get the units/hr rate and concentration from the user
     public static double[] get_units_conc(Scanner scan) {
@@ -139,38 +139,38 @@ System.out.println("INTRAVENOUS RATE ASSISTANT\n");
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-
-        int problem = get_problem(scan);
-
-        switch (problem) {
-            case 1:
-                double[] rateDropFactor = get_rate_drop_factor(scan);
-                int dropRatePerMinute = fig_drops_min(rateDropFactor[0], rateDropFactor[1]);
-                System.out.println("The drop rate per minute is " + Math.round(dropRatePerMinute) + ".");
-                break;
-            case 2:
-                System.out.print("Enter number of hours => ");
-                double hours = scan.nextDouble();
-                int mlPerHour = fig_ml_hr(hours);
-                System.out.println("The rate in milliliters per hour is " + mlPerHour + ".");
-            break;
-            case 3:
-                double[] kgRate = get_kg_rate_conc(scan);
-                double mlPerHour2 = (kgRate[0] * kgRate[1]) / kgRate[2];
-                System.out.println("The rate in ml/hr is " + Math.round(mlPerHour2) + ".");
-                break;
-            case 4:
-                double[] rateDropFactor_by_weight = get_units_conc(scan);
-                double dropRatePerMilliliters = rateDropFactor_by_weight[0] / rateDropFactor_by_weight [1];
-                System.out.println("The rate in milliliters per hour " + Math.round(dropRatePerMilliliters) + ".");
-                break;
-            case 5:
-                break;
-            default:
-                System.out.println("Feature not implemented.");
-        }
-
+        System.out.println("INTRAVENOUS RATE ASSISTANT\n");
+        int problem;
+        do{
+            problem = get_problem(scan);
+            switch (problem) {
+                case 1:
+                    double[] rateDropFactor = get_rate_drop_factor(scan);
+                    int dropRatePerMinute = fig_drops_min(rateDropFactor[0], rateDropFactor[1]);
+                    System.out.println("The drop rate per minute is " + Math.round(dropRatePerMinute) + ".\n");
+                    break;
+                case 2:
+                    System.out.print("Enter number of hours => ");
+                    double hours = scan.nextDouble();
+                    int mlPerHour = fig_ml_hr(hours);
+                    System.out.println("The rate in milliliters per hour is " + mlPerHour + ".\n");
+                    break;
+                case 3:
+                    double[] kgRate = get_kg_rate_conc(scan);
+                    double mlPerHour2 = (kgRate[0] * kgRate[1]) / kgRate[2];
+                    System.out.println("The rate in ml/hr is " + Math.round(mlPerHour2) + ".\n");
+                    break;
+                case 4:
+                    double[] rateDropFactor_by_weight = get_units_conc(scan);
+                    double dropRatePerMilliliters = rateDropFactor_by_weight[0] / rateDropFactor_by_weight [1];
+                    System.out.println("The rate in milliliters per hour " + Math.round(dropRatePerMilliliters) + ".\n");
+                    break;
+                case 5:
+                    break;
+                default:
+                    System.out.println("Feature not implemented.");
+            }
+        }while (problem != 5); // Exit loop when user selects 5
         scan.close(); // Closing Scanner after all inputs
     }
 }
-
