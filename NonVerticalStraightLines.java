@@ -29,6 +29,35 @@ public class NonVerticalStraightLines {
         System.out.println();
     }
     
+    // Function to convert two-point form to slope-intercept form
+    public double intcpt_from_pt_slope(double x, double y, double slope) {
+        return y - slope * x;
+    }
+    
+    // Function to display the two-point form and slope-intercept form of a line
+    public void display2_pt(double x1, double y1, double x2, double y2) {
+        if (x1 == x2) {
+            System.out.println("The line is vertical and cannot be represented in slope-intercept form.");
+            return;
+            
+        } 
+
+        // Calculate the slope and y-intercept of the line
+        double slope = (y2 - y1) / (x2 - x1);
+
+        double yIntcpt = intcpt_from_pt_slope(x1, y1, slope);
+        yIntcpt = Math.floor(yIntcpt * 100) / 100.0;
+
+        // Display the two-point form and slope-intercept form of the line
+        System.out.println("Two-point form");
+        System.out.println("\t" + "(" + String.format("%.2f", y2) + " - " + String.format("%.2f", y1) + ")");
+        System.out.println("m = -------------------");
+        System.out.println("\t" + "(" + String.format("%.2f", x2) + " - " + String.format("%.2f", x1) + ")");
+
+        System.out.println("\nSlope-intercept form");
+        System.out.println(String.format("y = %.2fx + %.2f", slope, yIntcpt));
+    }
+    
     public static void main(String[] args) {
         NonVerticalStraightLines program = new NonVerticalStraightLines();
         
@@ -37,7 +66,7 @@ public class NonVerticalStraightLines {
         if (choice == 1) {
             double[] points = new double[4];
             program.get2_pt(points);
-            // Rest of the program would go here
+            program.display2_pt(points[0], points[1], points[2], points[3]);
         }
     }
 }
