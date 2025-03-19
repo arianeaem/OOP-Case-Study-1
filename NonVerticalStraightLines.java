@@ -65,8 +65,14 @@ public class NonVerticalStraightLines {
         
         if (choice == 1) {
             double[] points = new double[4];
+            double[] result = new double[2];
             program.get2_pt(points);
             program.display2_pt(points[0], points[1], points[2], points[3]);
+            program.slope_intcpt_from2_pt(points, result);
+        } else if (choice == 2) {
+            double[] values = new double[3];
+            program.get_pt_slope(values);
+            // Rest of the program would go here
         }
     }
 }

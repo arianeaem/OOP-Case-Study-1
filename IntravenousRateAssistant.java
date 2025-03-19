@@ -4,7 +4,7 @@ public class IntravenousRateAssistant {
     // Function to get the problem number from the user
     public static int get_problem(Scanner scan) {
         int choice;
-
+System.out.println("INTRAVENOUS RATE ASSISTANT\n");
         while (true) {
             System.out.println("Enter the number of the problem you wish to solve.");
             System.out.println("\tGIVEN A MEDICAL ORDER IN\t\t\tCALCULATE RATE IN");
@@ -97,6 +97,7 @@ public class IntravenousRateAssistant {
 
         return kgRate;
     }
+    
 
     // Function to get the units/hr rate and concentration from the user
     public static double[] get_units_conc(Scanner scan) {
@@ -127,6 +128,14 @@ public class IntravenousRateAssistant {
         return unitsRate;
     }
 
+    public static int fig_drops_min(double rate, double dropFactor) {
+        return (int) Math.round((rate * dropFactor) / 60);
+    }
+
+    public static int fig_ml_hr(double hours) {
+        return (int) Math.round(1000 / hours);
+    }
+
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -136,13 +145,19 @@ public class IntravenousRateAssistant {
         switch (problem) {
             case 1:
                 double[] rateDropFactor = get_rate_drop_factor(scan);
-                double dropRatePerMinute = rateDropFactor[0] * rateDropFactor[1] / 60;
+                int dropRatePerMinute = fig_drops_min(rateDropFactor[0], rateDropFactor[1]);
                 System.out.println("The drop rate per minute is " + Math.round(dropRatePerMinute) + ".");
                 break;
+            case 2:
+                System.out.print("Enter number of hours => ");
+                double hours = scan.nextDouble();
+                int mlPerHour = fig_ml_hr(hours);
+                System.out.println("The rate in milliliters per hour is " + mlPerHour + ".");
+            break;
             case 3:
                 double[] kgRate = get_kg_rate_conc(scan);
-                double mlPerHour = (kgRate[0] * kgRate[1]) / kgRate[2];
-                System.out.println("The rate in ml/hr is " + Math.round(mlPerHour) + ".");
+                double mlPerHour2 = (kgRate[0] * kgRate[1]) / kgRate[2];
+                System.out.println("The rate in ml/hr is " + Math.round(mlPerHour2) + ".");
                 break;
             case 4:
                 double[] rateDropFactor_by_weight = get_units_conc(scan);
@@ -158,3 +173,4 @@ public class IntravenousRateAssistant {
         scan.close(); // Closing Scanner after all inputs
     }
 }
+
