@@ -60,12 +60,12 @@ public class IntravenousRateAssistant {
 
     // Function to get the mg/kg/hr rate, patient weight, and concentration from the user
     public static double[] get_kg_rate_conc(Scanner scan) {
-    double[] parameters = new double[3];
+    double[] kgRate = new double[3];
     
     while (true) {
         System.out.print("Enter rate in mg/kg/hr => ");
         if (scan.hasNextDouble()) {
-            parameters[0] = scan.nextDouble();
+            kgRate [0] = scan.nextDouble();
             break;
         } else {
             System.out.println("Invalid input. Please enter a number.");
@@ -76,7 +76,7 @@ public class IntravenousRateAssistant {
     while (true) {
         System.out.print("Enter patient weight in kg => ");
         if (scan.hasNextDouble()) {
-            parameters[1] = scan.nextDouble();
+            kgRate [1] = scan.nextDouble();
             break;
         } else {
             System.out.println("Invalid input. Please enter a number.");
@@ -87,7 +87,7 @@ public class IntravenousRateAssistant {
     while (true) {
         System.out.print("Enter concentration in mg/ml => ");
         if (scan.hasNextDouble()) {
-            parameters[2] = scan.nextDouble();
+            kgRate [2] = scan.nextDouble();
             break;
         } else {
             System.out.println("Invalid input. Please enter a number.");
@@ -95,17 +95,17 @@ public class IntravenousRateAssistant {
         }
     }
     
-    return parameters;
+    return kgRate;
 }
 
     // Function to get the units/hr rate and concentration from the user
     public static double[] get_units_conc(Scanner scan) {
-    double[] parameters = new double[2];
+    double[] unitsRate = new double[2];
     
     while (true) {
         System.out.print("Enter rate in units/hr => ");
         if (scan.hasNextDouble()) {
-            parameters[0] = scan.nextDouble();
+            unitsRate[0] = scan.nextDouble();
             break;
         } else {
             System.out.println("Invalid input. Please enter a number.");
@@ -116,7 +116,7 @@ public class IntravenousRateAssistant {
     while (true) {
         System.out.print("Enter concentration in units/ml => ");
         if (scan.hasNextDouble()) {
-            parameters[1] = scan.nextDouble();
+            unitsRate[1] = scan.nextDouble();
             break;
         } else {
             System.out.println("Invalid input. Please enter a number.");
@@ -124,7 +124,7 @@ public class IntravenousRateAssistant {
         }
     }
     
-    return parameters;
+    return unitsRate;
 }
 
     public static void main(String[] args) {
@@ -137,6 +137,19 @@ public class IntravenousRateAssistant {
                 double[] rateDropFactor = get_rate_drop_factor(scan);
                 double dropRatePerMinute = rateDropFactor[0] * rateDropFactor[1] / 60;
                 System.out.println("The drop rate per minute is " + Math.round(dropRatePerMinute) + ".");
+                break;
+            case 2: 
+                System.out.println("Feature not implemented.");
+                break;
+            case 3:
+                double[] kgRate = get_kg_rate_conc(scan);
+                double mlPerHour = (kgRate[0] * kgRate[1]) / kgRate[2];
+                System.out.println("The rate in ml/hr is " + Math.round(mlPerHour) + ".");
+                break;
+            case 4:
+                double[] unitsRate = get_units_conc(scan);
+                double mlPerHourUnits = unitsRate[0] / unitsRate[1];
+                System.out.println("The rate in ml/hr is " + Math.round(mlPerHourUnits) + ".");
                 break;
             default:
                 System.out.println("Feature not implemented.");
