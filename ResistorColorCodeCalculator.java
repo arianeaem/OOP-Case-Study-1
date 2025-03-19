@@ -15,13 +15,14 @@ public class ResistorColorCodeCalculator {
         return -1; // Returns -1 if the color is not found
     }
     
-    public static void main(String[]args){
+    public static void main(String[]args) {
         Scanner scan = new Scanner(System.in); // Scanner to take user input
+        boolean continueProgram = true; // Boolean to check if the program should continue
 
+        while(continueProgram) {
         System.out.print("Enter the colors of the resistor’s three bands, beginning with the\r\n" + //
                         "band nearest the end. Type the colors in lowercase letters only,");
         System.out.print("\nNO CAPS.");
-
         System.out.print("\nBand 1 => ");
         String band1 = scan.next();
         int index1 = search(COLOR_CODES, band1);
@@ -34,22 +35,45 @@ public class ResistorColorCodeCalculator {
         String band3 = scan.next();
         int index3 = search(COLOR_CODES, band3);
 
-        scan.close(); // Closing scanner
-
         // If any of the colors are not found, print an error message
-        if (index1 == -1 || index2 == -1 || index3 == -1) { 
-            System.out.println("Invalid color code entered. Please enter valid resistor colors.");
-            return;
+        if (index1 == -1 ) {
+            System.out.println("Invalid color: " + band1);
+        } else if (index2 == -1) {
+            System.out.println("Invalid color: " + band2);
+        } else if (index3 == -1) {
+            System.out.println("Invalid color: " + band3);
         } else {
             // Calculate the resistance using the formula (band1 * 10 + band2) * band3
             int resistance = (index1 * 10 + index2) * MULTIPLIER_VALUES[index3];
             // If the resistance is greater than or equal to 1000, print it in kilo-ohms
             if (resistance >= 1000) {
-                System.out.println("Resistance: " + resistance / 1000 + " kilo-ohms");
+                System.out.println("Resistance value: " + resistance / 1000 + " kilo-ohms");
             } else {
-                System.out.println("Resistance: " + resistance + " ohms");
+                System.out.println("Resistance value: " + resistance + " ohms");
             }
         }
+        
+        System.out.print("Do you want to decode another resistor?: ");
+        System.out.print("\n=> ");
+        String response = scan.next().toLowerCase();
+        
+        if (response.equals("y") || response.equals("yes")) {
+            continueProgram = true;
+        } else if (response.equals("n") || response.equals("no")) {
+            continueProgram = false;
+        } else {
+            System.out.println("Invalid response.");
+            System.out.print("Do you want to decode another resistor?: ");
+            System.out.print("\n=> ");
+            response = scan.next().toLowerCase();
+
+            if (response.equals("y") || response.equals("yes")) {
+                continueProgram = true;
+            } else {
+                continueProgram = false;
+            }
+        }   
+        }
+    scan.close();
     }
-    
 }
