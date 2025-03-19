@@ -57,7 +57,35 @@ public class IntravenousRateAssistant {
 
         return rateDropFactor;
     }
+    
+    public static double[] by_weight(Scanner scan){
+        double[] rateDropFactor_by_weight = new double[2];
 
+        while (true) {
+            System.out.print("Enter rate in units/hr => ");
+            if (scan.hasNextDouble()) {
+                rateDropFactor_by_weight[0] = scan.nextDouble();
+                break;
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                scan.next(); // Consume invalid input
+            }
+        }
+
+        while (true) {
+            System.out.print("Enter concentration in units/ml => ");
+            if (scan.hasNextDouble()) {
+                rateDropFactor_by_weight[1] = scan.nextDouble();
+                break;
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                scan.next(); // Consume invalid input
+            }
+        }
+
+        return rateDropFactor_by_weight;
+    }
+    
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
@@ -68,6 +96,11 @@ public class IntravenousRateAssistant {
                 double[] rateDropFactor = get_rate_drop_factor(scan);
                 double dropRatePerMinute = rateDropFactor[0] * rateDropFactor[1] / 60;
                 System.out.println("The drop rate per minute is " + Math.round(dropRatePerMinute) + ".");
+                break;
+            case 4:
+                double[] rateDropFactor_by_weight = by_weight(scan);
+                double dropRatePerMilliliters = rateDropFactor_by_weight[0] / rateDropFactor_by_weight [1];
+                System.out.println("The rate in milliliters per hour " + Math.round(dropRatePerMilliliters) + ".");
                 break;
             default:
                 System.out.println("Feature not implemented.");
