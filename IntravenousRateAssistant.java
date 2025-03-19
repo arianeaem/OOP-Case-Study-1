@@ -4,7 +4,7 @@ public class IntravenousRateAssistant {
     // Function to get the problem number from the user
     public static int get_problem(Scanner scan) {
         int choice;
-
+System.out.println("INTRAVENOUS RATE ASSISTANT\n");
         while (true) {
             System.out.println("Enter the number of the problem you wish to solve.");
             System.out.println("\tGIVEN A MEDICAL ORDER IN\t\t\tCALCULATE RATE IN");
