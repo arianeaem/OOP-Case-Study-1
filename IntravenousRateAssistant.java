@@ -58,6 +58,75 @@ public class IntravenousRateAssistant {
         return rateDropFactor;
     }
 
+    // Function to get the mg/kg/hr rate, patient weight, and concentration from the user
+    public static double[] get_kg_rate_conc(Scanner scan) {
+    double[] parameters = new double[3];
+    
+    while (true) {
+        System.out.print("Enter rate in mg/kg/hr => ");
+        if (scan.hasNextDouble()) {
+            parameters[0] = scan.nextDouble();
+            break;
+        } else {
+            System.out.println("Invalid input. Please enter a number.");
+            scan.next(); // Consume invalid input
+        }
+    }
+    
+    while (true) {
+        System.out.print("Enter patient weight in kg => ");
+        if (scan.hasNextDouble()) {
+            parameters[1] = scan.nextDouble();
+            break;
+        } else {
+            System.out.println("Invalid input. Please enter a number.");
+            scan.next(); // Consume invalid input
+        }
+    }
+    
+    while (true) {
+        System.out.print("Enter concentration in mg/ml => ");
+        if (scan.hasNextDouble()) {
+            parameters[2] = scan.nextDouble();
+            break;
+        } else {
+            System.out.println("Invalid input. Please enter a number.");
+            scan.next(); // Consume invalid input
+        }
+    }
+    
+    return parameters;
+}
+
+    // Function to get the units/hr rate and concentration from the user
+    public static double[] get_units_conc(Scanner scan) {
+    double[] parameters = new double[2];
+    
+    while (true) {
+        System.out.print("Enter rate in units/hr => ");
+        if (scan.hasNextDouble()) {
+            parameters[0] = scan.nextDouble();
+            break;
+        } else {
+            System.out.println("Invalid input. Please enter a number.");
+            scan.next(); // Consume invalid input
+        }
+    }
+    
+    while (true) {
+        System.out.print("Enter concentration in units/ml => ");
+        if (scan.hasNextDouble()) {
+            parameters[1] = scan.nextDouble();
+            break;
+        } else {
+            System.out.println("Invalid input. Please enter a number.");
+            scan.next(); // Consume invalid input
+        }
+    }
+    
+    return parameters;
+}
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
