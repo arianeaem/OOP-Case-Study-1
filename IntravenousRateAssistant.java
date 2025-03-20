@@ -1,7 +1,15 @@
 import java.util.Scanner;
 
+/**Intravenous Rate Assistant helps medical professionals calculate IV drip rates based in user input.
+ * It provides different calculation options and ensures input validation.
+ */
 public class IntravenousRateAssistant {
-    // Function to get the problem number from the user
+
+    /**Function to get the problem number from the user.
+     * 
+     * @param scan Scanner object to read user input.
+     * @return The problem number selected by the user.
+     */
     public static int get_problem(Scanner scan) {
         int choice;
 
@@ -28,8 +36,13 @@ public class IntravenousRateAssistant {
             }
         }
     }
-
-    // Function to get the rate and drop factor from the user
+    
+    /**Function to get the rate and drop factor from the user.
+     * Ensures that valid numerical inputs are entered.
+     * 
+     * @param scan Scanner object to read user input.
+     * @return An array containing the rate and drop factor entered by the user.
+     */
     public static double[] get_rate_drop_factor(Scanner scan) {
         double[] rateDropFactor = new double[2];
 
