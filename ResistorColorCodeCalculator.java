@@ -75,24 +75,30 @@ public class ResistorColorCodeCalculator {
                 System.out.println("Resistance value: " + resistance + " ohms");
             }
         }
-        
+
+        // Asks the user if they want to decode another resistor
         System.out.print("Do you want to decode another resistor?: ");
         System.out.print("\n=> ");
+        // Read the user's response and convert to lowercase
         String response = scan.next().toLowerCase();
-        
+
+        // Check the user's response whether to continue or exit the program
         if (response.equals("y") || response.equals("yes")) {
             continueProgram = true;
         } else if (response.equals("n") || response.equals("no")) {
             continueProgram = false;
         } else {
+            // Prompt user again in case of invalid input
             System.out.println("Invalid response.");
             System.out.print("Do you want to decode another resistor?: ");
             System.out.print("\n=> ");
             response = scan.next().toLowerCase();
 
             if (response.equals("y") || response.equals("yes")) {
+                // Program will continue
                 continueProgram = true;
             } else {
+                // Program will exit
                 continueProgram = false;
             }
         }   
