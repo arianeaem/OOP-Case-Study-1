@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
-// Non-Vertical Straight Lines converts a line from two-point form to slope-intercept form or from point-slope form to slope-intercept form.
+/**Non-Vertical Straight Lines converts a line from two-point form to slope-intercept form or from point-slope form to slope-intercept form.
+ * 
+ * @author BUAN, JANA SOPHIA, RODRIGO
+ * @author CALAQUIAN, LOUISE JAVIER, DELOS SANTOS
+ * @author EVAL, BRADLEY JAMES, FAGARANG
+ * @author GUSTO, ARIANE MAE, BAUTISTA
+ */
 public class NonVerticalStraightLines {
     Scanner input = new Scanner(System.in);
 

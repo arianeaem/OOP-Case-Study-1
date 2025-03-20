@@ -1,5 +1,12 @@
 import java.util.Scanner;
 
+/**Resistor Color Code Calculator decodes the colors of a resistor's bands to determine its resistance value.
+ * 
+ * @author BUAN, JANA SOPHIA, RODRIGO
+ * @author CALAQUIAN, LOUISE JAVIER, DELOS SANTOS
+ * @author EVAL, BRADLEY JAMES, FAGARANG
+ * @author GUSTO, ARIANE MAE, BAUTISTA
+ */
 public class ResistorColorCodeCalculator {
     static String[] COLOR_CODES = {"black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "gray", "white"};
     static int[] DIGIT_VALUES = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
