@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
-/**Intravenous Rate Assistant helps medical professionals calculate IV drip rates based in user input.
- * It provides different calculation options and ensures input validation.
- */
+// Intravenous Rate Assistant helps medical professionals calculate IV drip rates based in user input.
 public class IntravenousRateAssistant {
 
     /**Function to get the problem number from the user.

@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+// Non-Vertical Straight Lines converts a line from two-point form to slope-intercept form or from point-slope form to slope-intercept form.
 public class NonVerticalStraightLines {
     Scanner input = new Scanner(System.in);
 
@@ -47,12 +48,24 @@ public class NonVerticalStraightLines {
         result[1] = b;
     }
 
-    // Function to convert two-point form to slope-intercept form
+    /**Function to calculate the y-intercept of a line from a point and slope.
+     * 
+     * @param x The x-coordinate of the point.
+     * @param y The y-coordinate of the point.
+     * @param slope The slope of the line.
+     * @return The y-intercept of the line.
+     */
     public double intcpt_from_pt_slope(double x, double y, double slope) {
         return y - slope * x;
     }
 
-    // Function to display the two-point form and slope-intercept form of a line
+    /**Function to display the two-point form and slope-intercept form of a line.
+     * 
+     * @param x1 The x-coordinate of the first point.
+     * @param y1 The y-coordinate of the first point.
+     * @param x2 The x-coordinate of the second point.
+     * @param y2 The y-coordinate of the second point. 
+     */
     public void display2_pt(double x1, double y1, double x2, double y2) {
         if (x1 == x2) {
             System.out.println("The line is vertical and cannot be represented in slope-intercept form.");
