@@ -74,7 +74,11 @@ public class IntravenousRateAssistant {
         return rateDropFactor;
     }
 
-    // Function to get the mg/kg/hr rate, patient weight, and concentration from the user
+    /** Function to get the mg/kg/hr rate, patient weight, and concentration from the user
+    * This will prompt the user to enter the necessary values needed to calculate the rate in ml/hr.
+    * 
+    * @param scan Scanner object to read user input.
+    * @return An array containing the rate, weight, and concentration entered by the user. */
     public static double[] get_kg_rate_conc(Scanner scan) {
         double[] kgRate = new double[3];
 
@@ -115,7 +119,11 @@ public class IntravenousRateAssistant {
     }
 
 
-    // Function to get the units/hr rate and concentration from the user
+    /** Function to get the units/hr rate and concentration from the user.
+     * This will prompt the user to enter the necessary values needed to calculate the rate in units/hr.
+     * 
+     * @param scan Scanner object to read user input.
+     * @return An array containing the rate and concentration entered by the user. */
     public static double[] get_units_conc(Scanner scan) {
         double[] unitsRate = new double[2];
 
