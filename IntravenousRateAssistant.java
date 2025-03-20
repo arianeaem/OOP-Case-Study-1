@@ -137,11 +137,22 @@ public class IntravenousRateAssistant {
 
         return unitsRate;
     }
-
+     /**
+     * Calculates drops per minute from rate and drop factor.
+     *
+     * @param rate IV rate in ml/hr.
+     * @param dropFactor Drop factor in drops/ml.
+     * @return Drops per minute.
+     */
     public static int fig_drops_min(double rate, double dropFactor) {
         return (int) Math.round((rate * dropFactor) / 60);
     }
-
+     /**
+     * Calculates milliliters per hour from infusion duration.
+     *
+     * @param hours Duration of infusion in hours.
+     * @return Rate in ml/hr.
+     */
     public static int fig_ml_hr(double hours) {
         return (int) Math.round(1000 / hours);
     }
