@@ -76,17 +76,21 @@ public class NonVerticalStraightLines {
     }
 
     // Function to display the point-slope line equation from three input parameters.
-    public double display_pt_slope(double slope, double y, double x) {
+    public double display_pt_slope(double slope, double x, double y) {
         System.out.println("Point-slope form");
-        System.out.println("\ty - " + String.format("%.2f", y) + " = " + String.format("%.2f",slope) + " (x - " + String.format("%.2f", x) + ")\n");
-        return y - slope * x;
+        System.out.println("\ty - " + String.format("%.2f", y) + " = " +
+                String.format("%.2f", slope) + " (x - " + String.format("%.2f", x) + ")\n");
+
+        double b = y - (slope * x);
+        // System.out.println(b);
+        return b;
     }
     // Function to display the point-slope intercept equation from two input parameters.
-    public double display_slope_intcpt(double slope, double y) {
+    public double display_slope_intcpt(double slope, double b) {
         System.out.println("Slope-intercept form");
-        double b = y - slope;
-        System.out.println("\ty = " + String.format("%.2f", slope) + "x " + (b >= 0 ? "+ " : "- ") + String.format("%.2f", Math.abs(b)));
-        return y - slope;
+        System.out.println("\ty = " + String.format("%.2f", slope) + "x " +
+                (b >= 0 ? "+ " : "- ") + String.format("%.2f", Math.abs(b)));
+        return b;
     }
 
     public static void main(String[] args) {
@@ -105,8 +109,8 @@ public class NonVerticalStraightLines {
             } else if (choice == 2) {
                 double[] values = new double[3];
                 program.get_pt_slope(values);
-                program.display_pt_slope(values[0], values[1], values[2]);
-                program.display_slope_intcpt(values[0], values[1]);
+                double b = program.display_pt_slope(values[0], values[1], values[2]);
+                program.display_slope_intcpt(values[0], b);
             }
             // Ask if the user wants to do another conversion
             System.out.print("\nDo another conversion (Y or N)=> ");
