@@ -35,7 +35,11 @@ public class NonVerticalStraightLines {
 
         System.out.println();
     }
-    // Prompts user for slope and one point, storing them in an array
+    /**
+     * Prompts the user for the slope and one point, storing them in an array.
+     *
+     * @param values Array to store the slope and one point (x, y).
+     */
     public void get_pt_slope(double[] values) {
         System.out.print("Enter the slope=> ");
         values[0] = input.nextDouble();
@@ -46,7 +50,12 @@ public class NonVerticalStraightLines {
 
         System.out.println();
     }
-    // Calculates slope and y-intercept from two given points
+    /**
+     * Calculates the slope and y-intercept from two given points.
+     *
+     * @param points Array containing x and y coordinates of two points.
+     * @param result Array to store calculated slope and y-intercept.
+     */
     public void slope_intcpt_from2_pt(double[] points, double[] result) {
         double m = (points[3] - points[1]) / (points[2] - points[0]); // Slope formula
         double b = points[1] - (m * points[0]); // Solving for y-intercept
