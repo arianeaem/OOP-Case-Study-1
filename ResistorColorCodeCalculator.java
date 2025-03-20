@@ -8,11 +8,22 @@ import java.util.Scanner;
  * @author GUSTO, ARIANE MAE, BAUTISTA
  */
 public class ResistorColorCodeCalculator {
+    // Array of color codes in order of their values
     static String[] COLOR_CODES = {"black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "gray", "white"};
+    
+    // Corresponding digit values for each color
     static int[] DIGIT_VALUES = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+    // Multipliers corresponding to the third band
     static int[] MULTIPLIER_VALUES = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
     
-    // Searches for a color in the COLOR_CODES array and returns its index
+    /**
+     * Searches for a given color in the COLOR_CODES array and returns its index.
+     *
+     * @param list The array to search in.
+     * @param target The color to search for.
+     * @return The index of the color if found, otherwise -1.
+     */
     public static int search(String[] list, String target) {
         for (int i = 0; i < list.length; i++) {
             if (list[i].equals(target)) {
@@ -27,17 +38,22 @@ public class ResistorColorCodeCalculator {
         boolean continueProgram = true; // Boolean to check if the program should continue
 
         while(continueProgram) {
+        // Prompt the user for input
         System.out.print("Enter the colors of the resistor’s three bands, beginning with the\r\n" + //
                         "band nearest the end. Type the colors in lowercase letters only,");
         System.out.print("\nNO CAPS.");
+
+        // Read and search for the first band color
         System.out.print("\nBand 1 => ");
         String band1 = scan.next();
         int index1 = search(COLOR_CODES, band1);
-        
+
+        // Read and search for the second band color
         System.out.print("Band 2 => ");
         String band2 = scan.next();
         int index2 = search(COLOR_CODES, band2);
-        
+
+         // Read and search for the third band color 
         System.out.print("Band 3 => ");
         String band3 = scan.next();
         int index3 = search(COLOR_CODES, band3);
