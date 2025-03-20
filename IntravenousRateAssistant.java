@@ -38,7 +38,6 @@ public class IntravenousRateAssistant {
     }
     
     /**Function to get the rate and drop factor from the user.
-     * Ensures that valid numerical inputs are entered.
      * 
      * @param scan Scanner object to read user input.
      * @return An array containing the rate and drop factor entered by the user.
