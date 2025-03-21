@@ -13,7 +13,8 @@ public class NonVerticalStraightLines {
 
     /** Displays menu to the user and prompts them to select a problem type.
      * @return the user's choice as an integer (1 or 2).
-     * 1 is for Two-point form, while 2 is for Point-slope form.*/
+     * 1 is for Two-point form, while 2 is for Point-slope form.
+     */
     public int get_problem() {
         int choice;
 
@@ -31,7 +32,8 @@ public class NonVerticalStraightLines {
     /** Prompts the user to input the coordinates of two points on the line.
     * @param points an array to store the x and y coordinates of the two points.
     *      points[0] and points[1] are the x and y of the first point,
-    *      points[2] and points[3] are the x and y of the second point. */
+    *      points[2] and points[3] are the x and y of the second point.
+    */
     public void get2_pt(double[] points) {
         System.out.print("Enter the x-y coordinates of the first point separated by a space=> ");
         points[0] = input.nextDouble();
