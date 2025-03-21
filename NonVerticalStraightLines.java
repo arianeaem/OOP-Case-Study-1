@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public class NonVerticalStraightLines {
     // Scanner object to read user input.
-    Scanner input = new Scanner(System.in);
+    Scanner scan = new Scanner(System.in);
 
     /** Displays menu to the user and prompts them to select a problem type.
      * @return the user's choice as an integer (1 or 2).
@@ -23,7 +23,7 @@ public class NonVerticalStraightLines {
         System.out.println("2) Point-slope form (you know the line's slope and one point)");
         System.out.print("=> ");
 
-        choice = input.nextInt();
+        choice = scan.nextInt();
         System.out.println();
 
         return choice;
@@ -35,13 +35,13 @@ public class NonVerticalStraightLines {
     *      points[2] and points[3] are the x and y of the second point.
     */
     public void get2_pt(double[] points) {
-        System.out.print("Enter the x-y coordinates of the first point separated by a space=> ");
-        points[0] = input.nextDouble();
-        points[1] = input.nextDouble();
+        System.out.print("Enter the x-y coordinates of the first point separated by a space => ");
+        points[0] = scan.nextDouble();
+        points[1] = scan.nextDouble();
 
-        System.out.print("Enter the x-y coordinates of the second point separated by a space=> ");
-        points[2] = input.nextDouble();
-        points[3] = input.nextDouble();
+        System.out.print("Enter the x-y coordinates of the second point separated by a space => ");
+        points[2] = scan.nextDouble();
+        points[3] = scan.nextDouble();
 
         System.out.println();
     }
@@ -52,12 +52,12 @@ public class NonVerticalStraightLines {
      * @param values Array to store the slope and one point (x, y).
      */
     public void get_pt_slope(double[] values) {
-        System.out.print("Enter the slope=> ");
-        values[0] = input.nextDouble();
+        System.out.print("Enter the slope => ");
+        values[0] = scan.nextDouble();
 
-        System.out.print("Enter the x-y coordinates of the point separated by a space=> ");
-        values[1] = input.nextDouble();
-        values[2] = input.nextDouble();
+        System.out.print("Enter the x-y coordinates of the point separated by a space => ");
+        values[1] = scan.nextDouble();
+        values[2] = scan.nextDouble();
 
         System.out.println();
     }
@@ -115,7 +115,13 @@ public class NonVerticalStraightLines {
         System.out.println(String.format("y = %.2fx + %.2f", slope, yIntcpt));
     }
 
-    // Function to display the point-slope line equation from three input parameters.
+    /**Function to display the point-slope line equation.
+     * 
+     * @param slope The slope of the line.
+     * @param x The x-coordinate of the given point.
+     * @param y The y-coordinate of the given point.
+     * @return The calculated y-intercept of the line.
+     */ 
     public double display_pt_slope(double slope, double x, double y) {
         System.out.println("Point-slope form");
         System.out.println("\ty - " + String.format("%.2f", y) + " = " +
@@ -126,7 +132,12 @@ public class NonVerticalStraightLines {
         return b;
     }
     
-    // Function to display the point-slope intercept equation from two input parameters.
+    /**Function to display the point-slope intercept equation.
+     * 
+     * @param slope The slope of the line.
+     * @param b The y-intercept of the line.
+     * @return The y-intercept of the line.
+     */ 
     public double display_slope_intcpt(double slope, double b) {
         System.out.println("Slope-intercept form");
         System.out.println("\ty = " + String.format("%.2f", slope) + "x " +
@@ -136,7 +147,7 @@ public class NonVerticalStraightLines {
 
     public static void main(String[] args) {
         NonVerticalStraightLines program = new NonVerticalStraightLines();
-        Scanner input = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         char toContinue;
 
         do {
@@ -154,9 +165,12 @@ public class NonVerticalStraightLines {
                 program.display_slope_intcpt(values[0], b);
             }
             // Ask if the user wants to do another conversion
-            System.out.print("\nDo another conversion (Y or N)=> ");
-            toContinue = input.next().charAt(0);
+            System.out.print("\nDo another conversion (Y or N) => ");
+            toContinue = scan.next().charAt(0);
 
         }while (Character.toUpperCase(toContinue) == 'Y');
+        
+        scan.close();
+        
     }
 }

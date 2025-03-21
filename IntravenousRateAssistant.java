@@ -209,6 +209,7 @@ public class IntravenousRateAssistant {
                     System.out.println("Feature not implemented.");
             }
         }while (problem != 5); // Exit loop when user selects 5
-        scan.close(); // Closing Scanner after all inputs
+        
+        scan.close();
     }
 }
