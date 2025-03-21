@@ -45,6 +45,7 @@ public class NonVerticalStraightLines {
 
         System.out.println();
     }
+    
     /**
      * Prompts the user for the slope and one point, storing them in an array.
      *
@@ -60,6 +61,7 @@ public class NonVerticalStraightLines {
 
         System.out.println();
     }
+    
     /**
      * Calculates the slope and y-intercept from two given points.
      *
@@ -123,6 +125,7 @@ public class NonVerticalStraightLines {
         // System.out.println(b);
         return b;
     }
+    
     // Function to display the point-slope intercept equation from two input parameters.
     public double display_slope_intcpt(double slope, double b) {
         System.out.println("Slope-intercept form");
