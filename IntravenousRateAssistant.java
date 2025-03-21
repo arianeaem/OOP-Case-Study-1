@@ -78,7 +78,8 @@ public class IntravenousRateAssistant {
     * This will prompt the user to enter the necessary values needed to calculate the rate in ml/hr.
     * 
     * @param scan Scanner object to read user input.
-    * @return An array containing the rate, weight, and concentration entered by the user. */
+    * @return An array containing the rate, weight, and concentration entered by the user.
+    */
     public static double[] get_kg_rate_conc(Scanner scan) {
         double[] kgRate = new double[3];
 
@@ -123,7 +124,8 @@ public class IntravenousRateAssistant {
      * This will prompt the user to enter the necessary values needed to calculate the rate in units/hr.
      * 
      * @param scan Scanner object to read user input.
-     * @return An array containing the rate and concentration entered by the user. */
+     * @return An array containing the rate and concentration entered by the user.
+     */
     public static double[] get_units_conc(Scanner scan) {
         double[] unitsRate = new double[2];
 
@@ -151,6 +153,7 @@ public class IntravenousRateAssistant {
 
         return unitsRate;
     }
+    
      /**
      * Calculates drops per minute from rate and drop factor.
      *
@@ -161,6 +164,7 @@ public class IntravenousRateAssistant {
     public static int fig_drops_min(double rate, double dropFactor) {
         return (int) Math.round((rate * dropFactor) / 60);
     }
+    
      /**
      * Calculates milliliters per hour from infusion duration.
      *
@@ -170,7 +174,6 @@ public class IntravenousRateAssistant {
     public static int fig_ml_hr(double hours) {
         return (int) Math.round(1000 / hours);
     }
-
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
